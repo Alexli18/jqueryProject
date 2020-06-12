@@ -1,0 +1,45 @@
+.nav-input{
+    width: 100%;
+}
+.search-btn{
+}
+
+.right{
+    margin-left: auto;
+}
+.crypto-item{
+    width: auto;
+    
+    height: 200px;
+    border: 1px solid gray;
+    border-radius: 2%;
+    margin-top: 5%;
+}
+
+.crypto-item-header{
+    margin: 5%;
+}
+.crypto-item-body{
+    margin: 5%;
+}
+.card{
+    z-index: 2;
+}
+#modalBtn{
+    width: 100%;
+}
+#empty{
+    width: 100%;
+}
+h1{
+    text-align: center;
+}
+#container{
+    height: 400px;
+    width: 100%;
+}
+#headerImg{
+    background-image: url("../img/BG.jpg");
+    height: 200px;
+    border-radius: 5px 5px 0 0;
+}
