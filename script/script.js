@@ -155,7 +155,7 @@ $("#modalBtn").click(() => {
     // ADD TOGGLE ON TO RELEVANT ITEMS
     for (let index = 0; index < selectedData.length; index++) {
         const element = selectedData[index];
-        debugger;
+        
         // toogle_${element.id}  TOOGLE ID
         $(`#toogle_${element.id}`).bootstrapToggle('on');
     }
@@ -171,7 +171,7 @@ $("#modalBtn").click(() => {
 let selectedItems = [];
 
 function modalHandler(itemID, state, index, sym) {
-    debugger;
+    
     if (state) {
         if (selectedItems.length > 4) {
             $(`#inlineCheckbox${index}`).prop('checked', false);
@@ -212,10 +212,10 @@ function getMoreInfo(id, timeStamp) {
         let item = getDataFromLocal(id);
         // TIMER
         // if > 120 sec  
-        debugger
+        
         let itemTime = new Date(item.time);
         if (timeStamp - itemTime >= 2 * 60 * 1000) {
-            debugger
+            
             let moreInfoData = {
                 time: timeStamp,
                 imgSrc: '',
@@ -293,7 +293,7 @@ function getDataFromLocal(name) {
 
 
 function setDataToLocalByName(arr, name) {
-    debugger;
+    
     let strData = JSON.stringify(arr);
     window.localStorage.setItem(name, strData);
 }
