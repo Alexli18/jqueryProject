@@ -79,8 +79,8 @@ function draw(){
             yPos = 0;
         }
 
-        // cat touch star
-        if(circle[i].x == 120 && yPos >= circle[i].y && yPos <= (circle[i].y + ellipse.height)){
+        // cat touch 
+        if(circle[i].x <= 120 && yPos >= circle[i].y && yPos <= (circle[i].y + ellipse.height)){
             score++;
             score_audio.play();
             circle[i] = [];
@@ -99,7 +99,7 @@ function draw(){
 }
 var interval2;
 $("#gameStart").click(()=>{
-    interval2 = setInterval(draw, 15);
+    interval2 = setInterval(draw, 45);
     xPos = 0;
     yPos = 150;
     
