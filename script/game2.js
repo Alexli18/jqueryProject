@@ -80,7 +80,7 @@ function draw(){
         }
 
         // cat touch 
-        if(circle[i].x <= 120 && yPos >= circle[i].y && yPos <= (circle[i].y + ellipse.height)){
+        if(circle[i].x <= 120 && circle[i].x >= 100 && yPos >= circle[i].y && yPos <= (circle[i].y + ellipse.height)){
             score++;
             score_audio.play();
             circle[i] = [];
