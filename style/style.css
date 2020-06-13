@@ -1,20 +1,16 @@
 .nav-input{
     width: 100%;
 }
-
-
 .right{
     margin-left: auto;
 }
 .crypto-item{
-    width: auto;
-    
+    width: auto;   
     height: 200px;
     border: 1px solid gray;
     border-radius: 2%;
     margin-top: 5%;
 }
-
 .crypto-item-header{
     margin: 5%;
 }
@@ -32,13 +28,55 @@
 }
 h1{
     text-align: center;
+    font-family: headerFont;
+    color: aquamarine
 }
 #container{
     height: 400px;
     width: 100%;
 }
 #headerImg{
-    background-image: url("../img/BG.jpg");
+    background-image: url("../img/BG_header.jpg");
     height: 200px;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
+}
+
+
+@font-face {
+    font-family: headerFont;
+    src: url("../fonts/Lato-Light.ttf");
+  }
+
+
+a{
+    font-family: headerFont;
+    src: url("../fonts/Lato-Black.ttf")
+}
+
+.h3, p{
+    font-family: headerFont;
+    src: url("../fonts/Lato-Bold.ttf")
+}
+.header_title{
+    margin-top: 5%;
+    font-weight: bold
+}
+
+.content{
+    margin-top: 2%;
+}
+h2,h4{
+    text-align: left;
+}
+.myImg{
+    width: 300px;
+}
+#canvas1{
+    margin-top: 5%;
+    border: 2px solid black;
+    background-color: grey
+}
+.gameBtn{
+    width: 140px;
+    margin: 3px;
 }

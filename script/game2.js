@@ -70,11 +70,15 @@ function draw(){
                 y: Math.floor(Math.random() * cvs.height - ellipse.height) 
             });
         }
-        //reload function
+        //if cat in the bottom of the screen
         if(yPos + cat1.height >= cvs.height){
-            location.reload();
+            yPos = cvs.height- cat1.height; // set location for cat
         }
         
+        if(yPos < 0){
+            yPos = 0;
+        }
+
         // cat touch star
         if(circle[i].x == 120 && yPos >= circle[i].y && yPos <= (circle[i].y + ellipse.height)){
             score++;
@@ -94,9 +98,11 @@ function draw(){
     
 }
 var interval2;
-$("#contact-tab").click(()=>{
+$("#gameStart").click(()=>{
     interval2 = setInterval(draw, 15);
-
+    xPos = 0;
+    yPos = 150;
+    
 })
 
 $("#chart-tab").click(()=>{
@@ -105,8 +111,12 @@ $("#chart-tab").click(()=>{
 $("#home-tab").click(()=>{
     stopAll();
 })
+$("#gameStop").click(()=>{
+    stopAll();
+})
 
 function stopAll(){
+    
     clearInterval(interval2);
     cat_audio.pause();
 }

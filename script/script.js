@@ -63,8 +63,8 @@ function drawItem(arr) {
 // TOGGLE HANDLER
 /////////////////
 function toggleHandler(state, element) {
-    console.log('state: ' + state);
-    console.log('element: ' + element);
+    // console.log('state: ' + state);
+    // console.log('element: ' + element);
     //  toggle  ON
     if (state) {
         // if toggle data > 5 items
@@ -76,7 +76,7 @@ function toggleHandler(state, element) {
             //////////////
             /// draw modal
             /////////////
-            console.log(toggleData);
+            // console.log(toggleData);
             drawModal(toggleData);
             $('#staticBackdrop').modal('show')
         } else {
@@ -86,7 +86,7 @@ function toggleHandler(state, element) {
                 id: element.id,
                 symbol: element.symbol
             });
-            console.log(toggleData);
+            // console.log(toggleData);
 
         }
     }
@@ -112,7 +112,7 @@ if (getDataFromLocal('cardsData')) {
         })
         setDataToLocalByName(coinsData, 'cardsData');
         drawItem(coinsData);
-        console.log("COINS DATA" + coinsData)
+        // console.log("COINS DATA" + coinsData)
     })
 }
 
@@ -182,11 +182,11 @@ function modalHandler(itemID, state, index, sym) {
                 id: itemID,
                 symbol: sym
             });
-            console.log(selectedItems)
+            // console.log(selectedItems)
         }
     } else {
         selectedItems = removeByValue(selectedItems, itemID, "id");
-        console.log(selectedItems);
+        // console.log(selectedItems);
     }
 
 }
@@ -201,7 +201,7 @@ $(".crypto-item-btn").click((event) => {
     // collapse id
     moreInfoID = moreInfoID.slice(4);
     let time = new Date();
-    console.log("time from jquery***:" + time);
+    // console.log("time from jquery***:" + time);
     getMoreInfo(moreInfoID, time)
 })
 ///////////////////////////////
@@ -224,12 +224,12 @@ function getMoreInfo(id, timeStamp) {
                 ils: ''
             }
             $.get(`https://api.coingecko.com/api/v3/coins/${id}`).then((res) => {
-                console.log(res);
+                // console.log(res);
                 moreInfoData.imgSrc = res.image.thumb;
                 moreInfoData.usd = res.market_data.current_price.usd;
                 moreInfoData.eur = res.market_data.current_price.eur;
                 moreInfoData.ils = res.market_data.current_price.ils;
-                console.log(moreInfoData);
+                // console.log(moreInfoData);
                 setDataToLocalByName(moreInfoData, id);
                 //////////////
                 /// draw more info
@@ -238,8 +238,8 @@ function getMoreInfo(id, timeStamp) {
         }
         // get data from local and draw more info
         else {
-            console.log(`timeFromEvent: ${timeStamp}`);
-            console.log(`timeFromLocal: ${item.time}`);
+            // console.log(`timeFromEvent: ${timeStamp}`);
+            // console.log(`timeFromLocal: ${item.time}`);
             drawMoreInfo(id, item);
         }
     } else {
@@ -252,12 +252,12 @@ function getMoreInfo(id, timeStamp) {
             ils: ''
         }
         $.get(`https://api.coingecko.com/api/v3/coins/${id}`).then((res) => {
-            console.log(res);
+            // console.log(res);
             moreInfoData.imgSrc = res.image.thumb;
             moreInfoData.usd = res.market_data.current_price.usd;
             moreInfoData.eur = res.market_data.current_price.eur;
             moreInfoData.ils = res.market_data.current_price.ils;
-            console.log(moreInfoData);
+            // console.log(moreInfoData);
             setDataToLocalByName(moreInfoData, id);
             drawMoreInfo(id, moreInfoData);
         })
@@ -420,8 +420,8 @@ function drawChart(chartData, timeLine) {
 };
 
 function createDataForCharts(response) {
-    console.log(response);
-    console.log(counter)
+    // console.log(response);
+    // console.log(counter)
     let time = counter*2
     timeLine.push(time);
     counter++;
@@ -429,7 +429,7 @@ function createDataForCharts(response) {
     for (let i = 0; i < chartData.length; i++) {
         const element = chartData[i];
         element.data.push(response[element.label.toUpperCase()].USD);
-        console.log(element)
+        // console.log(element)
         // data structure
         // data: {
         //     labels: ['time'],/// sec

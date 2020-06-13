@@ -68,7 +68,7 @@ function toggleHandler(state, itemID, symbol) {
             //////////////
             /// draw modal
             /////////////
-            console.log(toggleData);
+            // console.log(toggleData);
             drawModal(toggleData, symbolsData);
             $('#staticBackdrop').modal('show')
         } else {
@@ -102,7 +102,7 @@ if (getDataFromLocal('cardsData')) {
         })
         setDataToLocalByName(coinsData, 'cardsData');
         drawItem(coinsData);
-        console.log("COINS DATA" + coinsData)
+        // console.log("COINS DATA" + coinsData)
     })
 }
 
@@ -166,13 +166,13 @@ function modalHandler(itemID, state, index, sym) {
             return;
         } else {
             selectedItems.push(itemID);
-            console.log(selectedItems)
+            // console.log(selectedItems)
         }
     } else {
         removeByValue(selectedItems, itemID);
         removeByValue(symbolsData, sym);
-        console.log(symbolsData);
-        console.log(selectedItems);
+        // console.log(symbolsData);
+        // console.log(selectedItems);
     }
 
 }
@@ -187,7 +187,7 @@ $(".crypto-item-btn").click((event) => {
     // collapse id
     moreInfoID = moreInfoID.slice(4);
     let time = new Date();
-    console.log("time from jquery***:" + time);
+    // console.log("time from jquery***:" + time);
     getMoreInfo(moreInfoID, time)
 })
 ///////////////////////////////
@@ -198,10 +198,8 @@ function getMoreInfo(id, timeStamp) {
         let item = getDataFromLocal(id);
         // TIMER
         // if > 120 sec  
-        debugger
         let itemTime = new Date(item.time);
         if (timeStamp - itemTime >= 2 * 60 * 1000) {
-            debugger
             let moreInfoData = {
                 time: timeStamp,
                 imgSrc: '',
@@ -210,12 +208,12 @@ function getMoreInfo(id, timeStamp) {
                 ils: ''
             }
             $.get(`https://api.coingecko.com/api/v3/coins/${id}`).then((res) => {
-                console.log(res);
+                // console.log(res);
                 moreInfoData.imgSrc = res.image.thumb;
                 moreInfoData.usd = res.market_data.current_price.usd;
                 moreInfoData.eur = res.market_data.current_price.eur;
                 moreInfoData.ils = res.market_data.current_price.ils;
-                console.log(moreInfoData);
+                // console.log(moreInfoData);
                 setDataToLocalByName(moreInfoData, id);
                 //////////////
                 /// draw more info
@@ -224,8 +222,8 @@ function getMoreInfo(id, timeStamp) {
         }
         // get data from local and draw more info
         else {
-            console.log(`timeFromEvent: ${timeStamp}`);
-            console.log(`timeFromLocal: ${item.time}`);
+            // console.log(`timeFromEvent: ${timeStamp}`);
+            // console.log(`timeFromLocal: ${item.time}`);
             drawMoreInfo(id, item);
         }
     } else {
@@ -238,12 +236,12 @@ function getMoreInfo(id, timeStamp) {
             ils: ''
         }
         $.get(`https://api.coingecko.com/api/v3/coins/${id}`).then((res) => {
-            console.log(res);
+            // console.log(res);
             moreInfoData.imgSrc = res.image.thumb;
             moreInfoData.usd = res.market_data.current_price.usd;
             moreInfoData.eur = res.market_data.current_price.eur;
             moreInfoData.ils = res.market_data.current_price.ils;
-            console.log(moreInfoData);
+            // console.log(moreInfoData);
             setDataToLocalByName(moreInfoData, id);
             drawMoreInfo(id, moreInfoData);
         })
@@ -279,7 +277,6 @@ function getDataFromLocal(name) {
 
 
 function setDataToLocalByName(arr, name) {
-    debugger;
     let strData = JSON.stringify(arr);
     window.localStorage.setItem(name, strData);
 }
@@ -380,7 +377,6 @@ function getDataForCharts() {
 
 
 function drawChart(chartData) {
-    debugger;
     let ctx = document.getElementById('myChart').getContext('2d');
     let chart = new Chart(ctx, {
             // The type of chart we want to create
@@ -408,15 +404,15 @@ function drawChart(chartData) {
             ///////////////////////
             //// SYMBOL   (LABEL)
             //////////////////////
-            console.log(symbolsData);
+            // console.log(symbolsData);
             for (let index = 0; index < symbolsData.length; index++) {
                 const element = symbolsData[index];
-                console.log(element.toUpperCase())
+                // console.log(element.toUpperCase())
                 let value = element.toUpperCase();
                 ////////////////////////////
                 //////  CURRENCY (  DATA    )
                 ///////////////////////////
-                console.log(res[value].USD);
+                // console.log(res[value].USD);
                 
 
             }
@@ -424,6 +420,3 @@ function drawChart(chartData) {
         });
     }
     
-
-    // https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD
-    // $('#chart-tab').click((e) => {}
